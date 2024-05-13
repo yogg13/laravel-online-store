@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Cart\CartController;
+use App\Http\Controllers\Checkout\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,6 @@ Route::resource('/login', LoginController::class)->only(['index', 'store']);
 Route::get('/logout', [LogoutController::class, 'exit']);
 
 Route::resource('/carts', CartController::class);
-
+Route::resource('/checkout', CheckoutController::class);
 
 

@@ -18,6 +18,11 @@ class Product extends Model
         'id',
     ];
 
+    public function product()
+    {
+        return $this->belongsToMany(User::class, 'cart', 'id_product')->withPivot('id', 'image', 'name_product', 'quantity', 'price')->withTimestamps();
+    }
+
     public function checkout()
     {
         return $this->hasMany(Checkout::class, 'id_product', 'id');

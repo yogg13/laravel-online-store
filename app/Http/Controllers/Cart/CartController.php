@@ -6,13 +6,19 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\Cart;
+use App\Models\User;
+use App\Models\Product;
 
 class CartController extends Controller
 {
 
     public function index()
     {
-        return view('cart.index');
+        $carts = Cart::join('product', 'cart.id_product', '=', 'product.id')
+            ->select('cart.id_user', 'product.id', 'product.name_product', 'product.price', 'product.image', 'cart.quantity')
+            ->get();
+        // dd($carts);
+        return view('cart.index', compact('carts'));
     }
 
     public function store(Request $request)

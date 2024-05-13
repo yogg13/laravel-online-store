@@ -12,7 +12,7 @@ class Cart extends Model
 
     protected $table = 'cart';
 
-    protected $fillable = ['id_user', 'id_product', 'quantity', 'category'];
+    protected $fillable = ['id_user', 'id_product', 'quantity'];
 
     protected $guarded = [
         'id',
