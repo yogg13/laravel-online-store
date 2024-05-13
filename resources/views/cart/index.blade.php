@@ -106,13 +106,14 @@
                                     <p>{{ $cart->quantity }}</p>
                                 </td>
                                 <td class="cart_total">
-                                    <p class="cart_total_price">{{ $cart->price }}</p>
+                                    <p class="cart_total_price">Rp.{{ $cart->price }}</p>
                                 </td>
-                                <form action="{{ url('/carts' . $cart->id_product) }}" method="post">
+                                <form action="{{ url('/carts/' . $cart->id) }}" method="post">
                                     @csrf
                                     @method('delete')
                                     <td class="cart_delete">
-                                        <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                                        <button class=" btn btn-danger" type="submit"><i class="fa fa-times"></i>
+                                        </button>
                                     </td>
                                 </form>
                             </tr>
@@ -144,13 +145,12 @@
                         <div class="total_area">
                             @foreach ($carts as $cart)
                                 <p @style('margin-inline:40px 10px')>Sub Total
-                                    <span> {{ $cart->quantity }} X
-                                        {{ $cart->price }}</span>
+                                    <span> {{ $cart->quantity }} X Rp.{{ $cart->price }}</span>
                                 </p>
                             @endforeach
                             <ul>
                                 <input type="hidden" name="data_checkout" value="{{ $carts }}">
-                                <li>Total <span>{{ $price }}</span></li>
+                                <li>Total <span>Rp.{{ $price }}</span></li>
                             </ul>
                             <button class="btn btn-default check_out" type="submit">
                                 Check Out
