@@ -23,6 +23,12 @@ class CheckoutController extends Controller
     {
         $data_json = json_decode($request['data_checkout']);
 
+        $this->validate($data_json, [
+            'id_user' => 'required',
+            'id_product' => 'required',
+            'amount' => 'required',
+        ]);
+
         foreach ($data_json as $data) {
             $price = (int) $data->price * (int) $data->quantity;
             Checkout::create([
