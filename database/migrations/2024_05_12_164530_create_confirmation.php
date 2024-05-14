@@ -19,8 +19,8 @@ return new class extends Migration {
             $table->string('proof');
             $table->timestamps();
 
-            $table->foreign('id_user')->references('id')->on('user');
-            $table->foreign('id_checkout')->references('id')->on('checkout');
+            $table->foreign('id_user')->references('id')->on('user')->onDelete('cascade');
+            $table->foreign('id_checkout')->references('id')->on('checkout')->onDelete('cascade');
         });
     }
 

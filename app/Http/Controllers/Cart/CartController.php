@@ -23,7 +23,6 @@ class CartController extends Controller
         //nanti membuat logic untuk pengecekan tambah product ke cart jika yg ingin ditambahkan sudah ada,
         //maka update quantitynya
 
-        // dd($request->all());
         $this->validate($request, [
             'jumlah' => 'required',
         ]);

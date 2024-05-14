@@ -17,7 +17,6 @@ return new class extends Migration {
             $table->uuid('id_user');
             $table->uuid('id_product');
             $table->integer('quantity')->unsigned();
-            $table->string('category');
             $table->timestamps();
 
             $table->foreign('id_user')->references('id')->on('user')->onDelete('cascade');

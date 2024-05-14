@@ -105,7 +105,7 @@
                                     </p>
                                 </td>
                                 <td class="cart_delete">
-                                    <form action="{{ url('/checkout/' . $checkout->id) }}" method="post">
+                                    <form action="{{ url('/checkout/' . $checkout->id) }}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button class=" btn btn-danger" type="submit"><i class="fa fa-times"></i>
