@@ -28,7 +28,6 @@ class LoginController extends Controller
 
         if ($user) {
             if ($user && Hash::check($validator['password'], $user->password)) {
-                // Session::put('id_user', $user->id);
                 Session::put('id_user', $user->id);
                 Auth::login($user);
                 return redirect('/home');

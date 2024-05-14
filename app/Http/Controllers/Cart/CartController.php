@@ -17,12 +17,14 @@ class CartController extends Controller
         $carts = Cart::join('product', 'cart.id_product', '=', 'product.id')
             ->select('cart.id_user', 'product.id', 'product.name_product', 'product.price', 'product.image', 'cart.quantity')
             ->get();
-        // dd($carts);
         return view('cart.index', compact('carts'));
     }
 
     public function store(Request $request)
     {
+        //nanti membuat logic untuk pengecekan tambah product ke cart jika yg ingin ditambahkan sudah ada,
+        //maka update quantitynya
+
         Cart::create([
             'id_user' => Session::get('id_user'),
             'id_product' => $request->id_barang,

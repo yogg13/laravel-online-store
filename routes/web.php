@@ -7,6 +7,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Cart\CartController;
 use App\Http\Controllers\Checkout\CheckoutController;
+use App\Http\Controllers\Checkout\ConfirmationController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +33,9 @@ Route::get('/logout', [LogoutController::class, 'exit']);
 
 Route::resource('/carts', CartController::class);
 Route::resource('/checkout', CheckoutController::class);
+
+Route::get('/confirmation', [ConfirmationController::class, 'index']);
+Route::post('/confirmation', [ConfirmationController::class, 'store']);
+
 
 
