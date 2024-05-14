@@ -25,6 +25,12 @@ class CartController extends Controller
         //nanti membuat logic untuk pengecekan tambah product ke cart jika yg ingin ditambahkan sudah ada,
         //maka update quantitynya
 
+        $this->validate($request, [
+            'id_user' => 'required',
+            'id_barang' => 'required',
+            'quantity' => 'required',
+        ]);
+
         Cart::create([
             'id_user' => Session::get('id_user'),
             'id_product' => $request->id_barang,
