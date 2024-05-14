@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\Cart;
-use App\Models\User;
-use App\Models\Product;
 
 class CartController extends Controller
 {
@@ -25,10 +23,9 @@ class CartController extends Controller
         //nanti membuat logic untuk pengecekan tambah product ke cart jika yg ingin ditambahkan sudah ada,
         //maka update quantitynya
 
+        // dd($request->all());
         $this->validate($request, [
-            'id_user' => 'required',
-            'id_barang' => 'required',
-            'quantity' => 'required',
+            'jumlah' => 'required',
         ]);
 
         Cart::create([
